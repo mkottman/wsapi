@@ -522,7 +522,7 @@ static int lfcgi_accept (lua_State *L) {
 }
 
 static int lfcgi_getenv (lua_State *L) {
-	const char* envVar = lua_tostring(L, 1);
+	const char* envVar = luaL_checkstring(L, 1);
 	char* val = getenv(envVar);
 
 	if(val != NULL) {
